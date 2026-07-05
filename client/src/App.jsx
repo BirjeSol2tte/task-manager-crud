@@ -1,5 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
-import Toaster from 'sonner'
+import { Navigate, Route, Routes, Outlet, useLocation } from 'react-router-dom'
+import {Toaster} from 'sonner'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import TaskDetails from './pages/TaskDetails'
@@ -30,7 +30,7 @@ function Layout () {
       </div>
     </div>
   ) : (
-    <Navigate to='/log-in' state={{ from: location }} replace />
+    <Navigate to='/login' state={{ from: location }} replace />
   )
 }
 
@@ -53,7 +53,7 @@ function App() {
         <Route path='/login' element={<Login />} />
       </Routes>
 
-      <Toaster richColors position />
+      <Toaster richColors />
     </main>
   )
 }
